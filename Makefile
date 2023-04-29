@@ -1,27 +1,11 @@
-COMPILER = arm-none-eabi-gcc
-CFLAGS  += \
-  -flto \
-  -mthumb \
-  -mabi=aapcs \
-  -mcpu=cortex-m4 \
-  -mfloat-abi=hard \
-  -mfpu=fpv4-sp-d16 \
-  -DCFG_TUSB_MCU=OPT_MCU_TM4C123 \
-  -uvectors \
-  -DTM4C123GH6PM \
-  -Wno-error=strict-prototypes \
-  -Wno-error=cast-qual
+include tinyusb/examples/make.mk
 
-OBJCOPY  = arm-none-eabi-objcopy
+INC += \
+	tinyusb/src \
+	tinyusb/hw \
 
-FLASHER  = lm4flash
+# Example source
+EXAMPLE_SOURCE += $(wildcard src/*.c)
+SRC_C += $(addprefix $(CURRENT_PATH)/, $(EXAMPLE_SOURCE))
 
-
-make: main.c
-	$(COMPILER) $(CFLAGS) -c main.c -o build/main.o
-	$(OBJCOPY) -O binary build/main.o build/main.bin
-
-flash: 
-	sudo $(FLASHER) ./build/main.bin
-
-.PHONY:
+include tinyusb/examples/rules.mk
