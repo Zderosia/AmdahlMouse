@@ -1,14 +1,10 @@
-# AmdahlMouse
+# Amdahl Mouse
 
-AmdahlMouse is a USB HID (Human Interface Device) implementation using the [TinyUSB](https://github.com/hathach/tinyusb) stack. This project demonstrates how to create a USB device that supports multiple HID profiles, including keyboard, mouse, consumer control, and gamepad.
+The Amdahl Mouse is a USB HID (Human Interface Device) implementation using the [TinyUSB](https://github.com/hathach/tinyusb) stack. This project demonstrates how to create a USB device that supports multiple HID profiles, including keyboard, mouse, consumer control, and gamepad.
 
 ## Features
 
-- USB HID support for:
-  - Keyboard
-  - Mouse
-  - Consumer Control (e.g., volume control)
-  - Gamepad
+- USB HID support for a full function mouse on any major OS
 - LED blinking patterns to indicate device status:
   - 250 ms: Device not mounted
   - 1000 ms: Device mounted
